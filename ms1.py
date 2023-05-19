@@ -53,14 +53,19 @@ def build_inverted_index():
                 except:
                     print("BAD FILE")
                 write_report(inverted_index)
-        write_json(inverted_index)
+        write_json(inverted_index, doc_ids_dict, urls_dict)
 
     return inverted_index
 
 
-def write_json(inverted_dic):
+def write_json(inverted_dic, doc_ids_dict, urls_dict):
     with open('inverted_index.json', 'w') as f:
             json.dump(inverted_dic, f)
+    with open('doc_ids.json', 'w') as f:
+            json.dump(doc_ids_dict, f)
+    with open('urls.json', 'w') as f:
+            json.dump(urls_dict, f)
+
 
 
 def write_report(inverted_dic):
