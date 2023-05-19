@@ -4,6 +4,7 @@ import json
 from collections import defaultdict
 from math import log10, sqrt
 
+
 # Load the inverted index from the JSON file
 def load_inverted_index():
     with open("inverted_index.json", "r") as f:
