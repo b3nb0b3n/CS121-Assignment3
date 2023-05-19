@@ -12,12 +12,12 @@ def load_inverted_index():
     return inverted_index
 
 
-# Calculate the tf-idf score for a term in a document
+# Calculate the tf-idf score for term in document
 def calculate_tf_idf(tf, df, N):
     return (1 + log10(tf)) * log10(N / df)
 
 
-# Search for documents that contain all the query terms using AND operator
+# Search for documents that contain all the query terms using AND
 def search_documents(query, inverted_index):
     query_terms = query.lower().split()
     result = defaultdict(float)
@@ -37,25 +37,22 @@ def search_documents(query, inverted_index):
     return sorted_result
 
 
-# Main function to handle the search queries
-def search_main(query):
-    inverted_index = load_inverted_index()
-    results = search_documents(query, inverted_index)
-    return results
 
-
-# Example usage of the search_main function for the provided queries
 if __name__ == "__main__":
-    queries = [
-        "cristina lopes",
-        "machine learning",
-        "ACM",
-        "master of software engineering",
-    ]
+    print("Please give a second to finish indexing...\n")
+    inverted_index = load_inverted_index()
+    print("Instructions:\n- Type 'Q' to exit.\n- Type in seach for results.\n")
+    while True:
+        query = input("Search Here: ")
+        if(query == 'Q'):
+            break
+        else:
+            results = search_documents(query, inverted_index)
+            print(f"Search results for query '{query}':")
+            if not results:
+                print("N/A")
+            else:
+                for result in results[0:5]:
+                    print(f"Document: {result[0]}, Score: {result[1]}")
+                print()
 
-    for query in queries:
-        results = search_main(query)
-        print(f"Search results for query '{query}':")
-        for result in results:
-            print(f"Document: {result[0]}, Score: {result[1]}")
-        print()
