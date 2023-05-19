@@ -1,0 +1,5 @@
+Inverted Index
+
+Number of Indexed Documents: 55394
+Number of Unique Tokens: 1153368
+Total Size (kB): 1165833.1162109375
