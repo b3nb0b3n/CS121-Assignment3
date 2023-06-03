@@ -1,1 +1,5 @@
-inverted_index.json
+inverted_index.csv
+token_row_map.json
+json_outputs
+report.txt
+search.py

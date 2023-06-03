@@ -1,0 +1,53 @@
+TEST.txt pure text document with the test queries that you used to evaluate 
+your engine (no need to report the results) and with comments on which ones started by doing 
+poorly and explanations of what you did to make them perform better.
+
+
+To start out we did a basic test (Cristina Lopes): 
+This would serve as a strong base to start with to ensure that the search algorithm worked
+We struggled with this query just because of struggles with getting our program to work. Once we cleaned up our code our search worked fine.
+
+
+We moved onto a term that is used frequently across multiple files (Copyright): 
+This test was used to tell us how precise our searcher by checking if it was able to return all the url's that matched the search.
+We noticed that the Search GUI only returned 1 result and resolved this issue within our indexer that was not properly storing all the url's
+
+
+We then moved to a term that would not appear on any of the url's (haha):
+We needed to make sure that random strings would not bring up urls if they were not part of the json file.
+We did struggle with this one because of issues with our Search GUI. With a better understanding of how Flask worked we were able to resolve the issue seamlessly 
+
+
+We then moved onto a name of one of our groupmates (Ben Boben):
+No issues
+
+We then looked at a term that used no alphabetical characters (2000):
+This was an interesting search query because it had trouble with the tf-idf
+What we did the resolve it was improve our regex to properly incorporate numeric numbers within the tf-idf calculations
+
+We then went with an alphanumeric word (Covid-19):
+Our program had issues with the dash rather than the combination of the alphabetical and numeric portions of the search query 
+Resolving the dash issue led to a functional search.
+
+We continued with another alphanumeric (Class of 2020):
+No issues
+
+We then went to a specific date: (05-19-1999):
+No issues
+
+We then tried a search query that we knew would be within the ICS department(Raymond Klefstad):
+No issues
+
+We then tried the opposite which would be something outside of the ICS department(Head of Psychology):
+No issues
+
+We then tried a search query that would take in a long string (What is the likelihood that AI would take the jobs of future programmers?)
+This search query was a point of concern because nothing came up at first and we were unsure if it was correct or not. 
+The only way we resolved it was by taking long strings from the contents of other url's and seeing if it would appear as a search result.
+
+We then tried an empty string ():
+No issues
+
+We then tried a singular letter (Z):
+This was an interesting case because we were unsure if we should have it return the result of everything that had a Z or only if a url had a singular Z within it.
+Ultimately, we went with the ladder for the sake of reducing clutter.
